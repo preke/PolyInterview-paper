@@ -1,0 +1,144 @@
+{
+  "agent_id": "A07",
+  "profile_role": "Behavioral-interview specialist",
+  "ratings": [
+    {
+      "artifact_id": "Q1",
+      "module": "question_plan",
+      "scores": {
+        "role_relevance": 5,
+        "specificity": 4,
+        "stage_coverage": 5
+      },
+      "rationale": "The plan closely tracks research-assistant duties, moving from background and collaboration to paper reproduction and a difficult JAX replication scenario. Prompts are concrete, though the behavioral question lacks an explicit outcome probe.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "Q2",
+      "module": "question_plan",
+      "scores": {
+        "role_relevance": 5,
+        "specificity": 5,
+        "stage_coverage": 5
+      },
+      "rationale": "Each prompt maps cleanly to analyst work and elicits progressively richer evidence: background, a data-quality incident, validated SQL reasoning, and stakeholder judgment under deadline pressure. The scenarios specify tasks, constraints, and decision points.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "Q3",
+      "module": "question_plan",
+      "scores": {
+        "role_relevance": 5,
+        "specificity": 4,
+        "stage_coverage": 5
+      },
+      "rationale": "The plan covers introduction, cross-functional behavior, architecture knowledge, and incident response, all tightly linked to the JD. Specific examples sharpen the prompts, but the scenario is visibly truncated and the skills question invites list-like answers.",
+      "confidence": 4
+    },
+    {
+      "artifact_id": "Q4",
+      "module": "question_plan",
+      "scores": {
+        "role_relevance": 4,
+        "specificity": 4,
+        "stage_coverage": 5
+      },
+      "rationale": "The four stages fit a civil-engineering interview and cover motivation, teamwork, software learning, and multidisciplinary design judgment. The unsupported phrase 'You mentioned' risks a false premise, and the behavioral prompt could demand a measurable result.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "F1",
+      "module": "followup",
+      "scores": {
+        "answer_dependence": 4,
+        "relevance": 5,
+        "diagnostic_depth": 2
+      },
+      "rationale": "It recognizes the vocabulary detour and redirects to relevant background and project evidence, so it is answer-responsive. However, it repeats two broad prompts at once and supplies no concrete project, contribution, action, or outcome probe.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "F2",
+      "module": "followup",
+      "scores": {
+        "answer_dependence": 3,
+        "relevance": 5,
+        "diagnostic_depth": 4
+      },
+      "rationale": "The follow-up mirrors the answer's growth language, but flattering an unrelated sign-off treats noise as evidence. Its narrowed request for one implementation, initial ambiguity, and resolution is relevant and likely to elicit a problem-action narrative.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "F3",
+      "module": "followup",
+      "scores": {
+        "answer_dependence": 4,
+        "relevance": 4,
+        "diagnostic_depth": 3
+      },
+      "rationale": "It uses the candidate's library-agent claim and asks for a concrete first setup, showing real dependence. Yet it invents traffic-detection and signal-processing experience, leaves '[NAME],' and probes neither the claimed relationship, metric, controls, nor validation.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "F4",
+      "module": "followup",
+      "scores": {
+        "answer_dependence": 2,
+        "relevance": 5,
+        "diagnostic_depth": 3
+      },
+      "rationale": "The redirection is relevant and sensibly narrows the task to one first diagnostic action across three plausible sources. It is only weakly answer-dependent, however, and omits rationale, verification evidence, subsequent steps, and the collaboration disagreement.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "R1",
+      "module": "feedback_report",
+      "scores": {
+        "evidence_alignment": 4,
+        "actionability": 5,
+        "response_faithfulness": 2
+      },
+      "rationale": "Diagnosis accurately identifies the non-answer and gives a concrete three-part rehearsal structure. However, communication gets an unexplained 2, the role changes to Machine Learning Engineer, and the polished answer invents candidate self-awareness and intent.",
+      "confidence": 4
+    },
+    {
+      "artifact_id": "R2",
+      "module": "feedback_report",
+      "scores": {
+        "evidence_alignment": 3,
+        "actionability": 5,
+        "response_faithfulness": 3
+      },
+      "rationale": "Judgments correctly note that no collaboration evidence exists, and the project-to-result rehearsal sequence is highly actionable. Claims about video, auditory channels, and a visible person are unsupported by the packet; polished framing also adds praise.",
+      "confidence": 4
+    },
+    {
+      "artifact_id": "R3",
+      "module": "feedback_report",
+      "scores": {
+        "evidence_alignment": 5,
+        "actionability": 4,
+        "response_faithfulness": 3
+      },
+      "rationale": "The evidence correctly flags non-engagement, and the two-tool comparison exercise is concrete, though technically shallow. The polished response largely preserves the irrelevant script but invents prior-context praise and substitutes wording absent from the candidate text.",
+      "confidence": 4
+    },
+    {
+      "artifact_id": "R4",
+      "module": "feedback_report",
+      "scores": {
+        "evidence_alignment": 5,
+        "actionability": 4,
+        "response_faithfulness": 3
+      },
+      "rationale": "The zero-evidence findings accurately match the off-topic response, and the coaching specifies a first diagnostic step, rationale, and collaborator involvement. Actionability stops short of a visible full sequence; the polished introduction fabricates earlier JAX competence.",
+      "confidence": 4
+    }
+  ],
+  "module_observations": {
+    "question_plan": "All four plans cover introduction, behavioral evidence, technical judgment, and a scenario. Q1-Q3 are tightly role-linked; Q4's unsupported 'You mentioned' premise is avoidable. Several behavioral prompts ask role and challenge but not an explicit result, limiting STAR completeness and comparable evidence.",
+    "followup": "The strongest prompts narrow toward concrete actions, but answer dependence varies: F3 uses the answer's library claim yet invents unseen experience; F4 is generic recovery. None fully probes task, personal action, rationale, validation, and outcome. Praise for clearly irrelevant content can falsely legitimize noise.",
+    "feedback_report": "Reports correctly detect absent job-relevant evidence and offer practical rehearsal structures, especially R2's project-to-result sequence. Faithfulness is weaker: polished sections add flattering transitions, change the stated role, or invent candidate awareness or prior competence. R2 also references unavailable video and auditory evidence."
+  },
+  "global_caveat": "Ratings use only packet text. Truncated questions, justifications, recommendations, and polished responses are assessed as displayed; no conclusions rely on CV, audio, video, identity, or omitted session context. Because all feedback responses are severely off-topic, the packet provides limited discrimination among nuanced coaching behaviors."
+}

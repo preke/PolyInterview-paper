@@ -1,0 +1,144 @@
+{
+  "agent_id": "A01",
+  "profile_role": "University career-service advisor",
+  "ratings": [
+    {
+      "artifact_id": "Q1",
+      "module": "question_plan",
+      "scores": {
+        "role_relevance": 5,
+        "specificity": 5,
+        "stage_coverage": 5
+      },
+      "rationale": "Every question targets core research-assistant demands, with concrete LLM, paper-reproduction, JAX, debugging, collaboration, and reproducibility prompts across all four interview stages.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "Q2",
+      "module": "question_plan",
+      "scores": {
+        "role_relevance": 5,
+        "specificity": 5,
+        "stage_coverage": 5
+      },
+      "rationale": "The plan translates the role into realistic data-quality, SQL-validation, stakeholder, and project-management questions. Each stage is represented, and prompts elicit both method and judgment.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "Q3",
+      "module": "question_plan",
+      "scores": {
+        "role_relevance": 5,
+        "specificity": 4,
+        "stage_coverage": 5
+      },
+      "rationale": "Coverage and role fit are excellent, especially for microservices, APIs, partner integration, and business collaboration. Specificity is reduced because the visible scenario ends mid-request and some prompts bundle many concepts.",
+      "confidence": 4
+    },
+    {
+      "artifact_id": "Q4",
+      "module": "question_plan",
+      "scores": {
+        "role_relevance": 5,
+        "specificity": 4,
+        "stage_coverage": 5
+      },
+      "rationale": "The plan spans all intended stages and reflects Arup, infrastructure, sustainability, teamwork, and design software. The technical prompt is concrete but assumes prior Civil 3D or STAAD.Pro experience not established here.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "F1",
+      "module": "followup",
+      "scores": {
+        "answer_dependence": 5,
+        "relevance": 5,
+        "diagnostic_depth": 2
+      },
+      "rationale": "It recognizes the vocabulary detour and redirects to academic background and projects, making it highly answer-dependent and relevant. It mostly repeats the original request rather than eliciting one concrete, diagnostic detail.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "F2",
+      "module": "followup",
+      "scores": {
+        "answer_dependence": 4,
+        "relevance": 5,
+        "diagnostic_depth": 4
+      },
+      "rationale": "The wording reflects the answer's growth theme, then requests a specific implementation, initial uncertainty, and resolution. That is a relevant, scaffolded probe, though its positive characterization overstates the nonresponsive answer.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "F3",
+      "module": "followup",
+      "scores": {
+        "answer_dependence": 3,
+        "relevance": 4,
+        "diagnostic_depth": 3
+      },
+      "rationale": "It uses the candidate's library-and-agent angle and asks for an initial experimental setup. However, it invents traffic-detection and signal-processing experience, includes a name placeholder, and only moderately deepens the unfinished claim.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "F4",
+      "module": "followup",
+      "scores": {
+        "answer_dependence": 2,
+        "relevance": 5,
+        "diagnostic_depth": 3
+      },
+      "rationale": "The follow-up appropriately recovers from a nonanswer and narrows diagnosis to a first concrete check. It does not materially use the answer and leaves the collaborator disagreement and improvement plan unexplored.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "R1",
+      "module": "feedback_report",
+      "scores": {
+        "evidence_alignment": 4,
+        "actionability": 5,
+        "response_faithfulness": 3
+      },
+      "rationale": "The critique accurately identifies all missing elements, and its three-part rehearsal advice is immediately usable. The role shifts to Machine Learning Engineer, while the polished answer invents self-awareness and intent absent from the response.",
+      "confidence": 5
+    },
+    {
+      "artifact_id": "R2",
+      "module": "feedback_report",
+      "scores": {
+        "evidence_alignment": 4,
+        "actionability": 5,
+        "response_faithfulness": 4
+      },
+      "rationale": "The report correctly identifies the absent collaboration example and supplies a practical story sequence. Its evidence mentions unavailable video context, and the polished transcript adds flattering framing, but otherwise avoids fabricating technical experience.",
+      "confidence": 4
+    },
+    {
+      "artifact_id": "R3",
+      "module": "feedback_report",
+      "scores": {
+        "evidence_alignment": 4,
+        "actionability": 5,
+        "response_faithfulness": 3
+      },
+      "rationale": "The report correctly identifies complete technical nonresponse and offers specific PyTorch/JAX preparation steps. Calling it a verbatim podcast transcript is unverified, while the polished version reconstructs redacted wording and adds unsupported context.",
+      "confidence": 4
+    },
+    {
+      "artifact_id": "R4",
+      "module": "feedback_report",
+      "scores": {
+        "evidence_alignment": 5,
+        "actionability": 5,
+        "response_faithfulness": 3
+      },
+      "rationale": "The diagnosis is tightly grounded, and the rehearsal advice addresses technical triage plus collaboration. The polished version faithfully paraphrases the nonanswer itself but invents prior discussion of JAX strengths, reducing response faithfulness.",
+      "confidence": 5
+    }
+  ],
+  "module_observations": {
+    "question_plan": "All four plans cover introduction, behavioral, technical, and scenario stages with strong role alignment. Q3's visibly truncated scenario and Q4's unsupported premise slightly reduce practice realism.",
+    "followup": "Redirects are generally interview-relevant and tactful. F1 and F4 mainly repeat or narrow the original prompt, while F3 introduces candidate history absent from the packet; F2 provides the strongest evidence-seeking probe.",
+    "feedback_report": "Reports correctly flag nonresponsive answers and offer concrete rehearsal structures. Their polished responses often preserve unusable source text, add unsupported interviewer framing, or substitute a meta-apology, limiting their value as model answers."
+  },
+  "global_caveat": "The packet excludes CV, audio, video, and fuller session context, and several fields are visibly truncated. Scores therefore assess only displayed text, treating unsupported references as weaknesses rather than presumed context."
+}

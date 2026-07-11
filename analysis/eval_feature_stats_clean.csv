@@ -1,0 +1,14 @@
+feature,modality,n_all,mean_all,n_answered,mean_answered,std_answered,median_answered,max
+conceptual_accuracy,text_professional,265,1.06,115,2.443,1.523,2.0,6.0
+terminology_usage,text_professional,265,1.045,115,2.409,1.462,2.0,6.0
+problem_solving_logic_chain,text_professional,265,0.921,115,2.122,1.476,2.0,6.0
+structural_clarity,text_expression,265,1.302,115,2.878,1.415,2.0,6.0
+coherence,text_expression,265,1.275,115,2.817,1.399,2.0,6.0
+word_usage_pattern,text_expression,265,1.275,115,2.817,1.348,2.0,6.0
+eye_contact,video_nonverbal,265,1.33,115,1.517,2.529,0.0,6.0
+facial_expression,video_nonverbal,265,1.352,115,1.515,2.52,0.0,6.0
+body_posture,video_nonverbal,265,1.373,115,1.546,2.569,0.0,6.0
+gesture,video_nonverbal,265,0.745,115,0.796,1.745,0.0,6.0
+accuracy,audio_oral,156,2.127,96,2.336,1.589,1.85,9.4
+prosody,audio_oral,156,6.544,96,7.227,1.427,7.45,8.95
+fluency,audio_oral,156,6.591,96,7.587,1.99,8.1,10.0

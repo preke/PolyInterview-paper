@@ -1,0 +1,29 @@
+.DS_Store
+**/.DS_Store
+__pycache__/
+*.py[cod]
+
+# Raw and user-level interview data
+backend/
+analysis/manifest_clean.csv
+analysis/eval_per_user.csv
+analysis/eval_per_user_clean.csv
+analysis/user-data-report_v3.html
+analysis/polyinterview-comprehensive-analysis.html
+analysis/FINDINGS.md
+analysis/PAPER_FACTS.md
+PolyInterview_数据概览.html
+
+# Derived PowerPoint extraction
+paper_sources/_pptx_unzip/
+
+# LaTeX build artifacts (compiled PDFs are retained)
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.synctex.gz
+

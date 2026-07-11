@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PolyInterview · 完成情况报告</title>
+<style>
+:root{
+  --bg:#0b0f1a;--panel:#141a2b;--panel2:#1b2238;--ink:#e8ecf6;--muted:#8b95b0;
+  --line:#26304d;--acc:#6c8cff;--acc2:#36d6b5;--warn:#ffb454;--bad:#ff6b81;
+  --good:#36d6b5;--grad:linear-gradient(135deg,#6c8cff,#36d6b5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.62;padding:34px 26px 70px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1060px;margin:0 auto}
+header{margin-bottom:26px}
+.eyebrow{color:var(--acc2);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700}
+h1{font-size:30px;font-weight:800;margin:8px 0 6px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;line-height:1.2}
+.sub{color:var(--muted);font-size:14.5px;max-width:760px}
+section{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 26px;margin-bottom:18px}
+h2{font-size:18px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+h2 .dot{width:9px;height:9px;border-radius:50%;background:var(--grad);flex-shrink:0}
+.lead{color:var(--muted);font-size:13px;margin-bottom:16px}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:20px 0 2px}
+.card{background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:14px 14px}
+.card .v{font-size:21px;font-weight:800;line-height:1.1}
+.card .l{font-size:11.5px;color:var(--muted);margin-top:5px}
+.card .s{font-size:10.5px;margin-top:7px;font-weight:700;display:inline-block;padding:2px 8px;border-radius:20px}
+.s.ok{background:rgba(54,214,181,.16);color:#5fe6c9}.s.warn{background:rgba(255,180,84,.16);color:#ffc77a}
+p{font-size:14px;margin:9px 0;color:#d4dbed}
+ul{margin:8px 0 8px 4px;padding-left:18px}li{font-size:13.7px;margin:6px 0;color:#d4dbed}
+b{color:#fff}code{background:#0d1322;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12.5px;color:#9db0ff;font-family:"SF Mono",Menlo,monospace}
+.callout{background:linear-gradient(135deg,rgba(108,140,255,.10),rgba(54,214,181,.07));border:1px solid var(--line);border-left:3px solid var(--acc2);border-radius:11px;padding:15px 18px;margin:14px 0}
+.callout.warn{border-left-color:var(--warn);background:linear-gradient(135deg,rgba(255,180,84,.09),rgba(255,107,129,.05))}
+.callout.bad{border-left-color:var(--bad)}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.4px}
+.pill{display:inline-block;font-size:10.5px;padding:2px 9px;border-radius:20px;font-weight:700;white-space:nowrap}
+.p-done{background:rgba(54,214,181,.16);color:#5fe6c9}.p-part{background:rgba(255,180,84,.16);color:#ffc77a}.p-block{background:rgba(255,107,129,.16);color:#ff8fa0}
+.cmp{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px;margin:4px 0}
+.cmp .old{color:var(--muted);text-decoration:line-through}.cmp .arr{color:var(--acc2);font-weight:700}.cmp .new{color:#fff;font-weight:700}
+.decision{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.decision:last-child{border-bottom:none}
+.dnum{flex-shrink:0;width:30px;height:30px;border-radius:9px;background:var(--grad);color:#06121f;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.decision .body{flex:1}.decision .q{font-weight:700;color:#fff;font-size:14.5px}.decision .opts{font-size:13px;color:var(--muted);margin-top:3px}
+.filegrid{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;font-size:13px;margin-top:6px}
+.filegrid div{padding:5px 0;border-bottom:1px dotted var(--line);color:#cdd5ea}
+.barwrap{margin:10px 0}
+.barrow{display:grid;grid-template-columns:130px 1fr 86px;align-items:center;gap:10px;margin:7px 0;font-size:12.5px}
+.barrow .lab{color:var(--muted);text-align:right}
+.track{background:var(--panel2);border-radius:6px;height:16px;overflow:hidden}
+.fill{height:100%;border-radius:6px}
+.fill.fail{background:linear-gradient(90deg,#ff6b81,#ffb454)}.fill.nov{background:#5a6478}.fill.ok{background:linear-gradient(90deg,#36d6b5,#6c8cff)}
+.barrow .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:28px;line-height:1.8}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+@media(max-width:820px){.cards{grid-template-columns:repeat(2,1fr)}.filegrid{grid-template-columns:1fr}.barrow{grid-template-columns:96px 1fr 70px}}
+</style></head>
+<body><div class="wrap">
+
+<header>
+  <div class="eyebrow">PolyInterview · EMNLP 2026 System Demo</div>
+  <h1>完成情况报告</h1>
+  <div class="sub">我把 demo paper 全文按近两年 ACL/EMNLP demo 风格重写、用真实数据重画了统计图、核实了所有引用、重算了数据集并发现一个关键问题，并设计了更严谨的评估方案。下面是已完成的部分，以及<b style="color:#ffc77a">需要你拍板</b>的几件事。生成于 2026-06-07。</div>
+</header>
+
+<div class="cards">
+  <div class="card"><div class="v">6&nbsp;页</div><div class="l">论文正文（≤6 页限制）</div><div class="s ok">编译通过</div></div>
+  <div class="card"><div class="v">10</div><div class="l">引用（联网核实）</div><div class="s ok">0 伪造</div></div>
+  <div class="card"><div class="v">4</div><div class="l">论文配图 / 表</div><div class="s ok">Python 生成</div></div>
+  <div class="card"><div class="v">46/120</div><div class="l">用户/会话（清洗后）</div><div class="s ok">已重算</div></div>
+  <div class="card"><div class="v">ZHI</div><div class="l">Linear 已连接并更新</div><div class="s ok">9 Done + 18 评论</div></div>
+  <div class="card"><div class="v">7</div><div class="l">作者已补全 + 视频就绪</div><div class="s ok">demo 1m56s 合规</div></div>
+</div>
+
+<section>
+  <h2><span class="dot"></span>一、论文重写（任务 1）</h2>
+  <div class="lead">入口技能：<code>/paper-writing-orchestrator</code> → 研究风格、查证引用、重写、anti-AI、对抗式自审。</div>
+  <p><b>研究了 6 篇真实的近两年 demo 论文</b>来对标风格：EmpathyEar (ACL'24)、ChatHF (EMNLP'24)、LearnLens / Marcel / MedTutor / AERA Chat (EMNLP'25)。提炼出的规律已落到全文：<b>“系统名：一句话副标题”</b>的标题格式、首页醒目的 live-demo 脚注、以系统/架构为主体（1.5–2 页）、第二人称走查、诚实的 Limitations 与 Ethics、不夸大。</p>
+  <p>全部章节均已重写（Abstract / Intro / Related / System / Scoring / Deployment / Evaluation / Conclusion / Limitations / Ethics）。技术细节与三层架构严格对照你的<b>飞书项目说明文档</b>（已在 <code>paper_sources/</code> 内导出为 PDF）撰写。</p>
+  <div class="callout">
+    <b>同步核对了 EMNLP 2026 demo 的硬性要求</b>（官方 CFP）：正文 ≤6 页（超出 desk-reject）、单盲署名、<b>截稿 2026-07-10 AoE</b>（不是 7-1）、camera-ready 8-30、必须附 ≤2.5 分钟 screencast、<b>live-demo 链接为强制项</b>（你已有）。论文已按这些约束成稿。
+  </div>
+  <p style="font-size:13px;color:var(--muted)">产物：<code>paper/main.tex</code> · <code>paper/PolyInterview_EMNLP2026_demo.pdf</code>（6 页）· <code>paper/references.bib</code>（10 条均联网核实）。</p>
+</section>
+
+<section>
+  <h2><span class="dot"></span>二、最重要的发现：把一个“假结论”改成了真正有力的故事</h2>
+  <p>你原稿（和数据看板）的核心结论是<b>“视觉模态评分系统性最低”</b>。我从原始日志重算后发现：那个排序来自<b>含测试账号的污染数据</b>。在清洗后的 120 场真实会话里，真相完全不同——</p>
+  <div class="callout bad">
+    <b>非语言（视频）评估器会“静默失败”并记 0：在应当评估的 233 个回答里，31.8% 直接失败、45.5% 根本没有可用视频、只有 22.7% 真正打出了分。</b> 把失败样本剔除后，视觉分上抬约 45%（眼神 1.11→1.60、姿态 1.15→1.66）。
+  </div>
+  <div class="barwrap">
+    <div class="barrow"><div class="lab">VLM 成功打分</div><div class="track"><div class="fill ok" style="width:22.7%"></div></div><div class="val">53 · 22.7%</div></div>
+    <div class="barrow"><div class="lab">VLM 失败记 0</div><div class="track"><div class="fill fail" style="width:31.8%"></div></div><div class="val">74 · 31.8%</div></div>
+    <div class="barrow"><div class="lab">无视频</div><div class="track"><div class="fill nov" style="width:45.5%"></div></div><div class="val">106 · 45.5%</div></div>
+  </div>
+  <p>所以真实故事是：<b>音频（韵律/流利度）打分偏松、约 6.6/10；文本内容贴地板（0.76–1.12，多为短答案）；视频评估本身不可靠。</b> 三模态相关性很弱（文本-音频 0.40、文本-视频 −0.14、音频-视频 −0.10），说明三路信号互不冗余。</p>
+  <p>论文现在把这点写成<b>正向贡献</b>：正是“每个分数可溯源到具体特征+模态”的可解释架构，才让这种评估器自身的失败<b>被看见、可诊断</b>——这比原来空泛的“视觉最低”有力得多，也更经得起 reviewer 推敲。这同时回答了 backlog 里“排查视觉模态评分系统性偏低”。</p>
+</section>
+
+<section>
+  <h2><span class="dot"></span>三、统计图 & 数据（任务 1 的图 + Python）</h2>
+  <p><b>模型图/框架图：直接采用你飞书技术文档里团队现成的两张图</b>（已从 PDF 抽出嵌入，未自画）：</p>
+  <ul>
+    <li><code>pipeline.png</code> — 「面试模拟流程图」(多智能体 pipeline) → 论文图 1。</li>
+    <li><code>framework.png</code> — 「面试评估框架图」(三层 features→aspects→competency) → 论文图 2（替换了我先前自画的 Figure 2）。</li>
+  </ul>
+  <p><b>统计图：</b>从原始日志重算后用 Python(matplotlib) 生成（你要求自己画的部分）：</p>
+  <ul>
+    <li><code>fig_modality.pdf</code> — 13 个特征按模态着色，视频特征用箭头标出“剔除失败样本后的抬升”。</li>
+    <li><code>fig_reliability.pdf</code> — VLM 失败/无视频/成功三段分解图。</li>
+    <li><code>table_deploy.tex</code> — 部署语料原始 vs 清洗对照表。</li>
+  </ul>
+  <p style="font-size:13px;color:var(--muted)">可复现脚本：<code>analysis/recompute_corpus.py</code> → <code>manifest_clean.csv</code>(120 行) + <code>corpus_stats.json</code>；<code>analysis/make_figures.py</code> → <code>paper/figures/</code>。数据未离开本机。</p>
+</section>
+
+<section>
+  <h2><span class="dot"></span>四、更好的评估方案（你要求的“设计更好的 evaluation / user study”）</h2>
+  <p>对标了近年 demo / 教育类 NLP 论文的评估做法，论文 §6 现在明确区分<b>“已有证据”</b>与<b>“计划中的验证”</b>：</p>
+  <ul>
+    <li><b>已有</b>：真实部署语料 + 自报式 pilot（129 人 / 6 院校，已如实标注为“自报”）+ 可靠性基线（上面的 VLM 失败率）。</li>
+    <li><b>计划中的验证（都赶得上 camera-ready）</b>：(i) <b>可靠性审计</b>——把 VLM 失败率当一等指标并用重试/兜底模型压低；(ii) <b>专家–系统一致性</b>（标准效度）——盲评 + ICC / Krippendorff α；(iii) <b>前后测学习增益</b>，含开/关自适应追问的对照臂；外加 <b>SUS + NASA-TLX</b> 可用性量表。</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="dot"></span>五、Linear / PolyInterview backlog（任务 2）</h2>
+  <div class="callout">
+    <b>✅ 已连接并更新。</b> 第二个 Linear MCP 服务器(<code>mcp__linear__</code>)就是你的个人 <b>ZhiyuanWen (ZHI)</b> 工作区，里面有真正的 <b>“PolyInterview — EMNLP 2026 系统演示”</b> 项目(ZHI-5…27，6 个里程碑)。我已：① 发了 1 条项目级进度总结；② 给 18 个 issue 逐条留了反馈评论；③ 把 9 个已完成的 issue 标为 <b>Done</b>(ZHI-13/16/17/18/22/23/24/25/10)。<br><span style="color:var(--muted)">注：ZHI-7 改 Done 被权限拦截(评论已留)；其余写作类 issue 状态已更新。</span></div>
+  <table>
+    <tr><th>#</th><th>Backlog 任务</th><th>状态</th><th>结果</th></tr>
+    <tr><td>1</td><td>数据清洗规则定稿</td><td><span class="pill p-done">已完成</span></td><td>4 条规则剔除 39 账号→保留 46；6 个团队自测账号建议保持剔除</td></tr>
+    <tr><td>5</td><td>排查视觉模态评分偏低</td><td><span class="pill p-done">已定位</span></td><td>VLM 31.8% 硬失败记 0 是主因（见上）</td></tr>
+    <tr><td>6</td><td>复核 overall 量纲/零分</td><td><span class="pill p-done">已完成</span></td><td>0–10 零膨胀；有效样本=非零（36/72），均值 1.76，最高 4.80</td></tr>
+    <tr><td>4</td><td>导出 120 场 manifest</td><td><span class="pill p-done">已完成</span></td><td><code>analysis/manifest_clean.csv</code></td></tr>
+    <tr><td>9</td><td>多模态相关性分析</td><td><span class="pill p-done">已完成</span></td><td>文本-音频 0.40 / 文本-视频 −0.14 / 音频-视频 −0.10</td></tr>
+    <tr><td>7</td><td>撰写 Dataset & Methods</td><td><span class="pill p-done">已完成</span></td><td>写入论文 §5 + 部署表</td></tr>
+    <tr><td>8</td><td>制作论文数据图表</td><td><span class="pill p-done">已完成</span></td><td>4 张图/表（见上）</td></tr>
+    <tr><td>2</td><td>处理“有音视频无文字”会话</td><td><span class="pill p-part">已量化·待决</span></td><td>233 题中 45.5% 无文字答案；是否 ASR 回填需你定</td></tr>
+    <tr><td>10</td><td>原始数据备份 + 脚本版本化</td><td><span class="pill p-part">部分</span></td><td>脚本已成形可复现；14GB 离线备份 + git 需你来做</td></tr>
+    <tr><td>3</td><td>装 ffmpeg 精校时长</td><td><span class="pill p-block">受阻</span></td><td>本机无 ffmpeg；时长暂基于 wav。需 <code>brew install ffmpeg</code></td></tr>
+  </table>
+</section>
+
+<section style="border-color:rgba(255,180,84,.45);background:linear-gradient(135deg,rgba(255,180,84,.06),rgba(108,140,255,.04))">
+  <h2><span class="dot" style="background:linear-gradient(135deg,#ffb454,#ff6b81)"></span>⭐ 需要你拍板的事</h2>
+  <div class="decision"><div class="dnum">✓</div><div class="body"><div class="q" style="color:#5fe6c9">Linear 已解决</div><div class="opts">已连到你的个人 ZHI 工作区并更新(9 Done + 18 评论)。可去 <a href="https://linear.app/zhiyuanwen/project/polyinterview-emnlp-2026-系统演示-c26cb5879973">项目页</a>复核；若我标 Done 的某条你想退回 In Progress，告诉我。</div></div></div>
+  <div class="decision"><div class="dnum">2</div><div class="body"><div class="q">接受核心结论的改写口径吗？</div><div class="opts">论文已从“视觉最低”改为“可解释架构暴露了评估器自身 31.8% 的失败”这一更诚实、更有力的叙事。这<b>改变了论文的核心卖点</b>，需要你确认。（我强烈建议保留——它经得起 review，也指明了下一步。）</div></div></div>
+  <div class="decision"><div class="dnum">✓</div><div class="body"><div class="q" style="color:#5fe6c9">作者已补全</div><div class="opts">7 人已写入作者块：Zhiyuan Wen, Jiannong Cao, Zijian Wang, Chen Chen, Xiaoyun Liu, Jianing Yin（PolyU 计算系）+ Zhuo Li（重庆邮电大学）。<b>仅需你确认各 co-author 的准确邮箱</b>（我只填了你和 Cao 的）。</div></div></div>
+  <div class="decision"><div class="dnum">4</div><div class="body"><div class="q">Intro 的市场数字</div><div class="opts">我删掉了无法溯源的精确数字（青年失业率 12.3%、242 申请/岗、2% 进面、93% 焦虑），只留可引用的效度 0.51。若你有出处，告诉我我加回去并标引用。</div></div></div>
+  <div class="decision"><div class="dnum">5</div><div class="body"><div class="q">数据收尾三件事</div><div class="opts">(a) 是否对“有录像无文字”会话做 ASR 回填；(b) 装 ffmpeg 后精校 webm/mp4 时长；(c) 14GB 原始数据离线备份 + <code>analysis/</code> 纳入 git。都需要你的机器/授权。</div></div></div>
+  <div class="decision"><div class="dnum">✓</div><div class="body"><div class="q" style="color:#5fe6c9">screencast 已就绪</div><div class="opts"><code>paper_sources/Demo.mp4</code> 已是 <b>1m56s、MPEG-4</b>，符合 ≤2.5 分钟硬规格，无需重剪。提交时附上或传 YouTube 即可。live-demo 链接也已满足。</div></div></div>
+</section>
+
+<section>
+  <h2><span class="dot"></span>六、质量保证做了什么</h2>
+  <ul>
+    <li><b>不伪造引用</b>：10 条全部联网核实（Semantic Scholar / ACL Anthology / DBLP / arXiv），含一条新增的 Hickman 2022（AVI 信度效度，正好支撑可靠性论点）。</li>
+    <li><b>anti-AI 通过</b>：破折号从 31 处压到 6 处（仅保留 1 处真正贴切的），无 delve/leverage/crucial/landscape 等 AI 词，句子节奏打散。</li>
+    <li><b>5 路审稿循环</b>：demo / 技术 / 写作 / 证据 / 伦理 五个视角并行评审 → 综合成排序修订单（裁决 <b>minor-revision → 改后 Ship</b>），13 条问题全部针对性改掉：把 demo/screencast 提到正文+摘要、§2 不带假引用地重述、澄清 Fig 中 n=159 vs 53、补**附录**（aspect↔feature 映射+题型门控+可溯源示例）、补全模型版本、软化并行性表述、纠正“噪声通道”逻辑等。</li>
+    <li><b>proofread skill 终检</b>：英式拼写 Behaviour→Behavior、删填充词 importantly；引用全 \citep（0 生引用）、无缩写/感叹号、数字全对 <code>corpus_stats.json</code>。评分 97/100。报告：<code>reviews/proofread/</code>。</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="dot"></span>七、文件索引</h2>
+  <div class="filegrid">
+    <div>📄 <code>paper/PolyInterview_EMNLP2026_demo.pdf</code> — 成稿 PDF（6 页）</div>
+    <div>📝 <code>paper/main.tex</code> · <code>references.bib</code> — 源文件</div>
+    <div>📊 <code>paper/figures/</code> — 4 张论文图/表</div>
+    <div>🔢 <code>analysis/manifest_clean.csv</code> — 120 场会话清单</div>
+    <div>🔁 <code>analysis/recompute_corpus.py</code> · <code>make_figures.py</code> — 复现脚本</div>
+    <div>🧾 <code>analysis/corpus_stats.json</code> — 统计真值</div>
+    <div>📌 <code>analysis/FINDINGS.md</code> — backlog 10 条逐条结论</div>
+    <div>📚 <code>analysis/PAPER_FACTS.md</code> — 事实/数字唯一真源</div>
+  </div>
+</section>
+
+<footer>
+  由本地数据与源文档自动生成 · 数据未离开本机 ·
+  live demo: <a href="https://polyinterview.comp.polyu.edu.hk/">polyinterview.comp.polyu.edu.hk</a><br>
+  EMNLP 2026 System Demonstrations · 截稿 2026-07-10 AoE · camera-ready 2026-08-30
+</footer>
+
+</div></body></html>

@@ -1,0 +1,11 @@
+Title,Description,Status,Priority,Labels,Estimate
+数据清洗规则定稿（复核测试账号判定）,"复核 39/85 个被判为测试的账号规则；重点确认 6 个『研究团队自测』账号（zhiyepiaoliu1-5、Zhiyuan00x、Xiangen Hu）是否保留。产出最终保留名单与排除依据文档。",Todo,High,data-cleaning,3
+处理「有音视频无文字答案」会话,"清洗集 87 场有录制 vs 仅 56 场有文字答案，约 31 场只有录音/录像、answer 字段为空。决定是否对这些做 ASR 转写补齐。",Todo,High,data-quality,3
+安装 ffmpeg 并精确校验 webm/mp4 时长,"当前时长仅基于 wav header 解析（本机无 ffmpeg）。装 ffmpeg 后对 webm/mp4 做精确时长抽取，与 wav 交叉校验，确认三格式同源一致。",Todo,Medium,tooling,2
+导出清洗后 120 场真实会话 manifest,"生成 CSV：user, session_id, status, n_answered, overall_score, n_recordings, total_duration_sec。作为论文与后续分析的基准数据表。",Todo,Medium,data,2
+排查视觉模态评分系统性偏低,"eye_contact / gesture / facial_expression / body_posture 均分显著低于音频与文本维度。判断是评分标准/模型 bug 还是真实表现，必要时人工抽检。",Todo,High,analysis,5
+复核 overall_score 量纲与零分处理,"overall 0–10，111/206 非零；大量 0 分来自未充分作答会话。定义『有效样本』口径，统计分析中排除或单列零分。",Todo,Medium,analysis,2
+撰写论文 Dataset & Methods 章节,"用清洗后口径（46 真实用户 / 120 会话 / 三模态：文本+音频+视频）撰写数据集与方法描述。",Todo,High,writing,5
+制作论文用数据图表,"基于现有 HTML 仪表盘，导出论文级图：参与漏斗、三模态评分对比、模态贡献差异。",Todo,Low,writing,3
+多模态相关性分析,"分析音频特征（韵律/流利度）、视觉特征、文本评分三者之间的相关性，支撑多模态贡献度论证。",Todo,Low,analysis,5
+原始数据备份与脚本版本化,"14GB 原始数据 + 清洗/分析脚本脱离单机备份并纳入版本控制，防止丢失。",Todo,Medium,infra,2
